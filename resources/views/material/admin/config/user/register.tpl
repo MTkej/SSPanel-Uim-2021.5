@@ -1,61 +1,56 @@
 {include file='admin/main.tpl'}
-
-<main class="content">
-    <div class="content-header ui-content-header">
-        <div class="container">
-            <h1 class="content-heading">注册设置</h1>
-        </div>
-    </div>
-    <div class="container">
-        <div class="col-lg-12 col-sm-12">
+<div id="layoutSidenav_content">
+    <main>
+        <header class="page-header page-header-dark bg-gradient-primary-to-secondary pb-10">
+            <div class="container-xl px-4">
+                <div class="page-header-content pt-4">
+                    <div class="row align-items-center justify-content-between">
+                        <div class="col-auto mt-4">
+                            <h1 class="page-header-title">
+                                注册设置
+                            </h1>
+                        </div>
+                        <div class="col-12 col-xl-auto mt-4">注册设置</div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <div class="container-xl px-4 mt-n10">
             <section class="content-inner margin-top-no">
-                <div class="card">
-                    <div class="card-main">
-                        <div class="card-inner">
-                            <div class="form-group form-group-label">
+                <div class="card mb-4">
+                    <div class="card-body">
+                            <div class="form-group form-group-label mb-4">
                                 <input class="form-control maxwidth-edit" id="name" type="text" value="{$edit_config->name}" readonly>
                             </div>
                             <div class="form-group form-group-label">
-                                <label for="value">
                                     <select id="value" class="form-control maxwidth-edit" name="value">
                                         {$value = $edit_config->getValue()}
                                         <option value="open" {if $value == 'open'}selected{/if}>开启</option>
                                         <option value="close" {if $value == 'close'}selected{/if}>关闭</option>
                                         <option value="invite" {if $value == 'invite'}selected{/if}>仅限邀请码</option>
                                     </select>
-                                </label>
                             </div>
-                        </div>
+                    </div>
+                    <div class="card-footer">
+                      <div class="d-grid gap-2">
+                     <button id="submit" type="submit" class="btn btn-block btn-brand waves-attach waves-light">修 改
+                     </button>
+                      </div>
                     </div>
                 </div>
-                <div class="card">
-                    <div class="card-main">
-                        <div class="card-inner">
-                            <div class="form-group">
-                                <div class="row">
-                                    <div class="col-md-10 col-md-push-1">
-                                        <button id="submit" type="submit"
-                                                class="btn btn-block btn-brand waves-attach waves-light">修改
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-main">
-                        <div class="card-inner">
+                <div class="card mb-4">
+                    <div class="card-body">
                             <p>显示表项: {include file='table/checkbox.tpl'}</p>
-                        </div>
                     </div>
                 </div>
+                                <div class="card mb-4">
+                                    <div class="card-body">
                 <div class="table-responsive">
                     {include file='table/table.tpl'}
                 </div>
+                                    </div>
+                                </div>
                 {include file='dialog.tpl'}
-            </section>
-        </div>
     </div>
 </main>
 

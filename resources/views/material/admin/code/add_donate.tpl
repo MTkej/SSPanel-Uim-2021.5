@@ -13,18 +13,18 @@
                     <div class="card-main">
                         <div class="card-inner">
                             <div class="form-group form-group-label">
-                                <label class="floating-label" for="number">类型</label>
+                                <label class="form-label" for="number">类型</label>
                                 <select id="type" class="form-control maxwidth-edit" name="type">
                                     <option value="-1">捐赠</option>
                                     <option value="-2">支出</option>
                                 </select>
                             </div>
                             <div class="form-group form-group-label">
-                                <label class="floating-label" for="number">备注</label>
+                                <label class="form-label" for="number">备注</label>
                                 <input class="form-control maxwidth-edit" id="code" type="text">
                             </div>
                             <div class="form-group form-group-label">
-                                <label class="floating-label" for="amount">金额</label>
+                                <label class="form-label" for="amount">金额</label>
                                 <input class="form-control maxwidth-edit" id="amount" type="text">
                             </div>
                         </div>

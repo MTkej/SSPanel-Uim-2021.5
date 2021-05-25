@@ -1,81 +1,93 @@
 {include file='admin/main.tpl'}
-
-<main class="content">
-    <div class="content-header ui-content-header">
-        <div class="container">
-            <h1 class="content-heading">优惠码</h1>
-        </div>
-    </div>
-    <div class="container">
-        <section class="content-inner margin-top-no">
-            <div class="card">
-                <div class="card-main">
-                    <div class="card-inner">
-                        <div class="form-group form-group-label">
-                            <label class="floating-label" for="prefix">优惠码</label>
+<div id="layoutSidenav_content">
+    <main>
+        <header class="page-header page-header-dark bg-gradient-primary-to-secondary pb-10">
+            <div class="container-xl px-4">
+                <div class="page-header-content pt-4">
+                    <div class="row align-items-center justify-content-between">
+                        <div class="col-auto mt-4">
+                            <h1 class="page-header-title">
+                                优惠码
+                            </h1>
+                        </div>
+                        <div class="col-12 col-xl-auto mt-4"></div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <div class="container-xl px-4 mt-n10">
+            <div class="card mb-4">
+                <div class="card-body">
+                        <div class="mb-3">
+                            <label class="form-label" for="prefix">优惠码</label> <span class="form-text">生成随机优惠码不填</span>
                             <input class="form-control maxwidth-edit" id="prefix" type="text">
-                            <p class="form-control-guide"><i class="material-icons">info</i>生成随机优惠码不填</p>
+
                         </div>
-                        <div class="form-group form-group-label">
-                            <label class="floating-label" for="credit">优惠码额度</label>
+                        <div class="mb-3">
+                            <label class="form-label" for="credit">优惠码额度</label> <span class="form-text">百分比，九折就填
+                                10</span>
                             <input class="form-control maxwidth-edit" id="credit" type="text">
-                            <p class="form-control-guide"><i class="material-icons">info</i>百分比，九折就填 10</p>
                         </div>
-                        <div class="form-group form-group-label">
-                            <label class="floating-label" for="expire">优惠码有效期(h)</label>
+                        <div class="mb-3">
+                            <label class="form-label" for="expire">优惠码有效期(h)</label>
                             <input class="form-control maxwidth-edit" id="expire" type="number" value="1">
                         </div>
-                        <div class="form-group form-group-label">
-                            <label class="floating-label" for="shop">优惠码可用商品ID</label>
+                        <div class="mb-3">
+                            <label class="form-label" for="shop">优惠码可用商品ID</label> <span
+                                class="form-text">不填即为所有商品可用，多个的话用英文半角逗号分割</span>
                             <input class="form-control maxwidth-edit" id="shop" type="text">
-                            <p class="form-control-guide"><i class="material-icons">info</i>不填即为所有商品可用，多个的话用英文半角逗号分割</p>
                         </div>
-                        <div class="form-group form-group-label">
-                            <label class="floating-label" for="shop">优惠码每个用户可用次数，-1为无限次</label>
+                        <div class="mb-3">
+                            <label class="form-label" for="shop">优惠码每个用户可用次数，-1为无限次</label>
                             <input class="form-control maxwidth-edit" id="count" type="number" value="1">
                         </div>
-                        <div class="form-group form-group-label">
-                            <label for="generate-type">
-                                <label class="floating-label" for="sort">选择生成方式</label>
-                                <select id="generate-type" class="form-control maxwidth-edit">
+                        <div class="mb-3">
+                                <label class="form-label" for="sort">选择生成方式</label>
+                                  <select id="generate-type" class="form-control maxwidth-edit" name="sort">
                                     <option value="1">指定字符</option>
                                     <option value="2">随机字符</option>
                                     <option value="3">指定字符+随机字符</option>
                                 </select>
-                            </label>
                         </div>
-                        <div class="form-group">
-                            <div class="row">
-                                <div class="col-md-10 col-md-push-1">
-                                    <button id="coupon" type="submit"
-                                            class="btn btn-block btn-brand waves-attach waves-light">生成优惠码
-                                    </button>
-                                </div>
+                </div>
+                        <div class="card-footer">
+                            <div class="d-grid gap-2">
+                                <button id="coupon" type="submit" class="btn btn-primary btn-block">添加节点
+                                </button>
                             </div>
                         </div>
-                    </div>
-                </div>
             </div>
-            <div class="card margin-bottom-no">
-                <div class="card-main">
-                    <div class="card-inner">
-                        <p class="card-heading">优惠码</p>
+            <div class="card mb-4">
+                <div class="card-body">
                         <p>显示表项:
                             {include file='table/checkbox.tpl'}
                         </p>
-                        <div class="card-table">
-                            <div class="table-responsive">
-                                {include file='table/table.tpl'}
-                            </div>
-                        </div>
-                    </div>
                 </div>
+            </div>
+            <div class="card">
+            <div class="card-body">
+                <div class="table-responsive">
+                    {include file='table/table.tpl'}
+                </div>
+            </div>
             </div>
             {include file='dialog.tpl'}
         </section>
     </div>
 </main>
-
+    <!-- Footer -->
+    <footer class="footer-admin mt-auto footer-light">
+        <div class="container-xl px-4">
+            <div class="row">
+                <div class="col-md-12 text-center small">&copy;{date("Y")} {$config['appName']} ©
+                    Powered by <a href="/staff">SSPANEL</a>
+                    {if $config['enable_analytics_code'] === true}{include file='analytics.tpl'}{/if}
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- End of Footer -->
+    </div>
 {include file='admin/footer.tpl'}
 
 <script>

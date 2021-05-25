@@ -1,65 +1,78 @@
 {include file='admin/main.tpl'}
-
-<main class="content">
-    <div class="content-header ui-content-header">
-        <div class="container">
-            <h1 class="content-heading">充值码{if $config['enable_donate']===true}与捐赠{/if}管理</h1>
-        </div>
-    </div>
-    <div class="container">
-        <div class="col-lg-12 col-md-12">
-            <section class="content-inner margin-top-no">
-                <div class="card">
-                    <div class="card-main">
-                        <div class="card-inner">
-                            <p>系统中金额流转记录。</p>
-                            <p>
-                                今日流水：￥{$user->calIncome("today")}<br/>
-                                昨日流水：￥{$user->calIncome("yesterday")}<br/>
-                                这月流水：￥{$user->calIncome("this month")}<br/>
-                                上月流水：￥{$user->calIncome("last month")}<br/>
-                                总共流水：￥{$user->calIncome("total")}
-                            </p>
-                            <p>显示表项:
-                                {include file='table/checkbox.tpl'}
-                            </p>
+<div id="layoutSidenav_content">
+    <main>
+        <header class="page-header page-header-dark bg-gradient-primary-to-secondary pb-10">
+            <div class="container-xl px-4">
+                <div class="page-header-content pt-4">
+                    <div class="row align-items-center justify-content-between">
+                        <div class="col-auto mt-4">
+                            <h1 class="page-header-title">
+                                充值码{if $config['enable_donate']===true}与捐赠{/if}管理
+                            </h1>
                         </div>
+                        <div class="col-12 col-xl-auto mt-4">编辑当前节点</div>
                     </div>
                 </div>
-                <div class="table-responsive">
-                    {include file='table/table.tpl'}
+            </div>
+        </header>
+        <div class="container-xl px-4 mt-n10">
+            <div class="card mb-4">
+                <div class="card-header">
+                    系统中金额流转记录。
                 </div>
-                <div class="fbtn-container">
-                    <div class="fbtn-inner">
-                        <a class="fbtn fbtn-lg fbtn-brand-accent waves-attach waves-circle waves-light"
-                           href="/admin/code/create">+</a>
+                <div class="card-body">
+                    <div class="card-inner mb-3">
+                        <span class="badge badge-md bg-primary">今日流水：￥{$user->calIncome("today")}</span>
+                        <span class="badge badge-md bg-secondary">昨日流水：￥{$user->calIncome("yesterday")}</span>
+                        <span class="badge badge-md bg-success">本月流水：￥{$user->calIncome("this month")}</span>
+                        <span class="badge badge-md bg-info">上月流水：￥{$user->calIncome("last month")}</span>
+                        <span class="badge badge-md bg-warning text-dark">总共流水：￥{$user->calIncome("total")}</span>
+                    </div>
+                    <p>显示表项:
+                        {include file='table/checkbox.tpl'}
+                    </p>
+                </div>
+            </div>
+            <div class="card mb-4">
+                <div class="card-body">
+                    <div class="table-responsive">
+                        {include file='table/table.tpl'}
                     </div>
                 </div>
-                <div class="fbtn-container">
-                    <div class="fbtn-inner">
-                        <a class="fbtn fbtn-lg fbtn-brand-accent waves-attach waves-circle waves-light"
-                           data-toggle="dropdown"><span class="fbtn-ori icon">add</span><span class="fbtn-sub icon">close</span></a>
-                        <div class="fbtn-dropup">
-                            <a class="fbtn fbtn-brand waves-attach waves-circle waves-light"
-                               href="/admin/code/create"><span class="fbtn-text fbtn-text-left">充值码</span><span
-                                        class="icon">code</span></a> {if $config['enable_donate']===true}
-                                <a class="fbtn fbtn-green waves-attach waves-circle waves-light"
-                                   href="/admin/donate/create"><span class="fbtn-text fbtn-text-left">捐赠和支出</span><span
-                                            class="icon">attach_money</span></a>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <div class="justify-content-end">
+                        <div class="btn-group mx-auto" role="group" aria-label="Basic example">
+                            <a class="btn btn-primary" href="/admin/code/create">充值码</a>
+                            {if $config['enable_donate']===true}
+                                <a class="btn btn-primary" href="/admin/donate/create">捐赠和支出</a>
                             {/if}
                         </div>
                     </div>
                 </div>
-            </section>
-        </div>
-    </div>
-</main>
+            </div>
 
+        </div>
+    </main>
+    <!-- Footer -->
+    <footer class="footer-admin mt-auto footer-light">
+        <div class="container-xl px-4">
+            <div class="row">
+                <div class="col-md-12 text-center small">&copy;{date("Y")} {$config['appName']} ©
+                    Powered by <a href="/staff">SSPANEL</a>
+                    {if $config['enable_analytics_code'] === true}{include file='analytics.tpl'}{/if}
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- End of Footer -->
+</div>
 {include file='admin/footer.tpl'}
 
 <script>
     {include file='table/js_1.tpl'}
-    $(document).ready(function () {
+    $(document).ready(function() {
         {include file='table/js_2.tpl'}
     });
 </script>

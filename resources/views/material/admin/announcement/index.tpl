@@ -1,36 +1,43 @@
 {include file='admin/main.tpl'}
 
-<main class="content">
-    <div class="content-header ui-content-header">
-        <div class="container">
-            <h1 class="content-heading">公告管理</h1>
-        </div>
-    </div>
-    <div class="container">
-        <div class="col-lg-12 col-md-12">
-            <section class="content-inner margin-top-no">
-
-                <div class="card">
-                    <div class="card-main">
-                        <div class="card-inner">
-                            <p>系统中所有公告。</p>
-                            <p>显示表项:
-                                {include file='table/checkbox.tpl'}
-                            </p>
+<div id="layoutSidenav_content">
+    <main>
+        <header class="page-header page-header-dark bg-gradient-primary-to-secondary pb-10">
+            <div class="container-xl px-4">
+                <div class="page-header-content pt-4">
+                    <div class="row align-items-center justify-content-between">
+                        <div class="col-auto mt-4">
+                            <h1 class="page-header-title">
+                                公告管理
+                            </h1>
                         </div>
+                        <div class="col-12 col-xl-auto mt-4">已发布公告列表。</div>
                     </div>
                 </div>
-                <div class="table-responsive">
-                    {include file='table/table.tpl'}
+            </div>
+        </header>
+        <div class="container-xl px-4 mt-n10">
+            <div class="card shadow mb-4">
+                <div class="card-body">
+                    <p>显示表项: {include file='table/checkbox.tpl'}</p>
                 </div>
-                <div class="fbtn-container">
-                    <div class="fbtn-inner">
-                        <a class="fbtn fbtn-lg fbtn-brand-accent waves-attach waves-circle waves-light"
-                           href="/admin/announcement/create">+</a>
+            </div>
+        </div>
+        <div class="container-xl  px-4 mt-5">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <div class="table-responsive">
+                        {include file='table/table.tpl'}
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <div class="d-grid gap-2">
+                        <a class="btn btn-primary btn-block"
+                            href="/admin/announcement/create">添加公告</a>
                     </div>
                 </div>
                 <div aria-hidden="true" class="modal modal-va-middle fade" id="delete_modal" role="dialog"
-                     tabindex="-1">
+                    tabindex="-1">
                     <div class="modal-dialog modal-xs">
                         <div class="modal-content">
                             <div class="modal-heading">
@@ -43,10 +50,10 @@
                             <div class="modal-footer">
                                 <p class="text-right">
                                     <button class="btn btn-flat btn-brand-accent waves-attach waves-effect"
-                                            data-dismiss="modal" type="button">取消
+                                        data-dismiss="modal" type="button">取消
                                     </button>
                                     <button class="btn btn-flat btn-brand-accent waves-attach" data-dismiss="modal"
-                                            id="delete_input" type="button">确定
+                                        id="delete_input" type="button">确定
                                     </button>
                                 </p>
                             </div>
@@ -54,11 +61,24 @@
                     </div>
                 </div>
                 {include file='dialog.tpl'}
-            </section>
-        </div>
-    </div>
-</main>
 
+
+            </div>
+        </div>
+    </main>
+                    <!-- Footer -->
+                    <footer class="footer-admin mt-auto footer-light">
+                        <div class="container-xl px-4">
+                            <div class="row">
+                                <div class="col-md-12 text-center small">&copy;{date("Y")} {$config['appName']} ©
+                                    Powered by <a href="/staff">SSPANEL</a>
+                                    {if $config['enable_analytics_code'] === true}{include file='analytics.tpl'}{/if}
+                                </div>
+                            </div>
+                        </div>
+                    </footer>
+                    <!-- End of Footer -->
+</div>
 {include file='admin/footer.tpl'}
 
 <script>

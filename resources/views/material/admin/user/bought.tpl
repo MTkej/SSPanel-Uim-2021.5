@@ -1,20 +1,26 @@
 {include file='admin/main.tpl'}
-
-<main class="content">
-    <div class="content-header ui-content-header">
-        <div class="container">
-            <h1 class="content-heading">#{$user->id} [{$user->user_name}] 用户购买明细</h1>
-        </div>
-    </div>
-    <div class="container">
-        <div class="col-lg-12 col-sm-12">
-            <section class="content-inner margin-top-no">
-                <form id="main_form">
-                    <div class="card">
-                        <div class="card-main">
-                            <div class="card-inner">
-                                <div class="form-group form-group-label control-highlight-custom dropdown">
-                                    <label class="floating-label" for="buy_shop">选择套餐</label>
+<div id="layoutSidenav_content">
+    <main>
+        <header class="page-header page-header-dark bg-gradient-primary-to-secondary pb-10">
+            <div class="container-xl px-4">
+                <div class="page-header-content pt-4">
+                    <div class="row align-items-center justify-content-between">
+                        <div class="col-auto mt-4">
+                            <h1 class="page-header-title">
+                                #{$user->id} [{$user->user_name}] 用户购买明细
+                            </h1>
+                        </div>
+                        <div class="col-12 col-xl-auto mt-4"></div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <div class="container-xl px-4 mt-n10">
+          <form id="main_form">
+                    <div class="card mb-4">
+                        <div class="card-body">
+                               <div class="mb-3">
+                                    <label class="form-label" for="buy_shop">选择套餐</label>
                                     <button id="buy_shop" class="form-control maxwidth-edit" name="buy_shop"
                                             data-toggle="dropdown">
                                         请选择套餐
@@ -28,8 +34,8 @@
                                         {/foreach}
                                     </ul>
                                 </div>
-                                <div class="form-group form-group-label control-highlight-custom dropdown">
-                                    <label class="floating-label" for="buy_type">类型</label>
+                                <div>
+                                    <label class="form-label" for="buy_type">类型</label>
                                     <button id="buy_type" class="form-control maxwidth-edit" name="buy_type"
                                             data-toggle="dropdown" value="0">
                                         添加
@@ -45,34 +51,24 @@
                                         </li>
                                     </ul>
                                 </div>
-
-                            </div>
                         </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-main">
-                            <div class="card-inner">
-                                <div class="form-group">
-                                    <div class="row">
-                                        <div class="col-md-10 col-md-push-1">
+                        <div class="card-footer">
+                                       <div class="d-grid gap-2">
                                             <button id="submit" type="submit" class="btn btn-block btn-brand">添加
                                             </button>
                                         </div>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
-                    </div>
                 </form>
-                <div class="card">
-                    <div class="card-main">
-                        <div class="card-inner">
+        </div>
+                <div class="card mb-4">
+                    <div class="card-body">
                             <p>显示表项: {include file='table/checkbox.tpl'}</p>
-                        </div>
                     </div>
                 </div>
-                <div class="table-responsive">
+                <div class="card mb-4">
+                    <div class="card-body table-responsive">
                     {include file='table/table.tpl'}
+                </div>
                 </div>
                 <div aria-hidden="true" class="modal modal-va-middle fade" id="delete_modal" role="dialog"
                      tabindex="-1">
@@ -99,10 +95,20 @@
                     </div>
                 </div>
                 {include file='dialog.tpl'}
-        </div>
-    </div>
 </main>
-
+                <!-- Footer -->
+                <footer class="footer-admin mt-auto footer-light">
+                    <div class="container-xl px-4">
+                        <div class="row">
+                            <div class="col-md-12 text-center small">&copy;{date("Y")} {$config['appName']} ©
+                                Powered by <a href="/staff">SSPANEL</a>
+                                {if $config['enable_analytics_code'] === true}{include file='analytics.tpl'}{/if}
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+                <!-- End of Footer -->
+                </div>
 {include file='admin/footer.tpl'}
 
 <script>
